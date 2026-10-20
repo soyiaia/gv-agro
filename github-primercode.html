@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gonzalo Valentino Agronegocios | Protección de cultivos para distribuidores</title>
+<meta name="description" content="Productos terminados para protección de cultivos, disponibles para entrega inmediata. Directo del formulador al distribuidor en Santa Fe, Córdoba y Buenos Aires.">
+<meta property="og:title" content="Gonzalo Valentino Agronegocios">
+<meta property="og:description" content="Protección de cultivos para el canal distribuidor. Producto terminado, precio competitivo y logística resuelta.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- COMPLETAR: pegar acá Meta Pixel / Google Tag (GA4, Google Ads) para medir la campaña -->
+<style>
+:root{
+  --noche:#08241B; --verde:#0F5A3F; --campo:#2E8B57; --lima:#B5E36A; --niebla:#F3F6F4; --blanco:#fff; --texto:#10201A; --gris:#56655D; --linea:#D8E1DB;
+  --display:"Bricolage Grotesque","Trebuchet MS",Arial,sans-serif; --cuerpo:"Public Sans",Arial,sans-serif;
+  box-sizing:border-box;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;font-family:var(--cuerpo);font-size:17px;line-height:1.65;color:var(--texto);background:var(--blanco)}
+h1,h2,h3{font-family:var(--display);line-height:1.05;margin:0;letter-spacing:-.02em;font-weight:700}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--lima);outline-offset:3px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+.btn{display:inline-block;font:600 1rem var(--cuerpo);padding:15px 30px;border:0;border-radius:2px;text-decoration:none;cursor:pointer;background:var(--lima);color:var(--noche);transition:background .2s}
+.btn:hover{background:#C9F088}
+.btn.ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.5)}
+.btn.ghost:hover{background:rgba(255,255,255,.1)}
+.btn.verde{background:var(--verde);color:#fff}
+.btn.verde:hover{background:var(--noche)}
+
+/* nav */
+.nav{position:fixed;inset:0 0 auto 0;z-index:20;background:rgba(8,36,27,.82);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.1)}
+.nav .wrap{display:flex;justify-content:space-between;align-items:center;height:68px;color:#fff}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;font:700 1rem var(--display)}
+.logo b{display:grid;place-items:center;width:36px;height:36px;border:1.5px solid var(--lima);color:var(--lima);font-size:.9rem}
+.menu{display:flex;gap:30px;align-items:center}
+.menu a{text-decoration:none;font-size:.95rem;color:#D4E2DA}
+.menu a:hover{color:#fff}
+.menu .btn{padding:10px 20px;font-size:.92rem;color:var(--noche)}
+
+/* hero */
+.hero{position:relative;min-height:100vh;min-height:100svh;background:linear-gradient(180deg,#06191A 0%,#0A3A2B 55%,#2B6B3F 100%);color:#fff;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
+.hero svg{position:absolute;inset:0;width:100%;height:100%}
+.hero .wrap{position:relative;padding-top:140px}
+.hero h1{font-size:clamp(2.6rem,7.2vw,6rem);max-width:13ch}
+.hero .sub{margin:26px 0 34px;max-width:50ch;font-size:1.2rem;color:#D4E2DA}
+.hero .acciones{display:flex;flex-wrap:wrap;gap:14px}
+.cifras{position:relative;margin-top:72px;border-top:1px solid rgba(255,255,255,.22);background:rgba(6,25,26,.45);backdrop-filter:blur(6px)}
+.cifras .wrap{padding-top:22px;padding-bottom:22px;display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.cifras strong{display:block;font:700 1.25rem var(--display)}
+.cifras span{font-size:.9rem;color:#B9CCC1}
+
+section{padding:104px 0}
+.sup{font-size:.9rem;color:var(--campo);font-weight:600;margin-bottom:14px}
+.h2{font-size:clamp(2rem,4.4vw,3.4rem);max-width:20ch}
+.lead{color:var(--gris);max-width:56ch;margin-top:20px;font-size:1.1rem}
+
+/* valor */
+.pilares{margin-top:56px;display:grid;grid-template-columns:repeat(4,1fr);border-top:2px solid var(--noche)}
+.pilar{padding:28px 28px 0 0}
+.pilar h3{font-size:1.35rem;margin-bottom:10px}
+.pilar p{color:var(--gris);font-size:.98rem}
+
+/* catalogo */
+.catalogo{background:var(--niebla)}
+.herr{margin-top:40px;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font:500 .95rem var(--cuerpo);padding:9px 18px;border:1.5px solid var(--linea);background:#fff;border-radius:999px;cursor:pointer;color:var(--texto)}
+.chip[aria-pressed="true"]{background:var(--noche);border-color:var(--noche);color:#fff}
+#buscar{font:inherit;padding:11px 16px;border:1.5px solid var(--linea);border-radius:2px;min-width:240px;background:#fff}
+.lista{margin-top:28px;display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.prod{background:#fff;border:1.5px solid var(--linea);padding:18px 18px 16px;display:flex;flex-direction:column;justify-content:space-between;gap:16px;text-align:left;cursor:pointer;font:inherit;color:inherit;transition:border-color .2s,transform .2s}
+.prod:hover{border-color:var(--campo)}
+.prod small{display:block;color:var(--campo);font-weight:600;font-size:.82rem;margin-bottom:4px}
+.prod strong{font:700 1.08rem/1.25 var(--display)}
+.prod .acc{font-size:.88rem;color:var(--gris)}
+.prod[aria-pressed="true"]{border-color:var(--verde);background:#EAF5EC}
+.prod[aria-pressed="true"] .acc{color:var(--verde);font-weight:600}
+.vacio{grid-column:1/-1;color:var(--gris)}
+.nota-cat{margin-top:22px;color:var(--gris);font-size:.95rem}
+
+/* proceso */
+.proceso{background:var(--noche);color:#fff}
+.proceso .sup{color:var(--lima)}
+.proceso .lead{color:#B9CCC1}
+.pasos{list-style:none;margin:56px 0 0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:20px;counter-reset:p}
+.pasos li{counter-increment:p;padding-top:18px;border-top:2px solid var(--lima);font:600 1.15rem var(--display)}
+.pasos li::before{content:counter(p,decimal-leading-zero);display:block;color:var(--lima);font-size:.9rem;margin-bottom:8px}
+
+/* trayectoria */
+.tray .wrap{display:grid;grid-template-columns:5fr 7fr;gap:72px;align-items:center}
+.retrato{aspect-ratio:4/5;background:linear-gradient(160deg,var(--verde),var(--noche));display:grid;place-items:center;color:var(--lima);font:700 5rem var(--display)}
+.retrato img{width:100%;height:100%;object-fit:cover}
+.tray p{margin-top:18px;color:#33453B;max-width:56ch}
+
+/* zonas */
+.zonas{background:var(--niebla)}
+.zonas ul{list-style:none;margin:40px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:2px solid var(--noche)}
+.zonas li{padding:28px 20px 0 0;font:700 clamp(1.5rem,3vw,2.2rem) var(--display)}
+
+/* contacto */
+.contacto .wrap{display:grid;grid-template-columns:5fr 7fr;gap:72px}
+.contacto ul{margin:28px 0 0;padding:0;list-style:none;display:grid;gap:12px;color:#33453B}
+.contacto li{padding-left:22px;position:relative}
+.contacto li::before{content:"";position:absolute;left:0;top:.7em;width:10px;height:2px;background:var(--campo)}
+form{display:grid;gap:16px}
+label{display:grid;gap:6px;font-weight:600;font-size:.9rem}
+input,select,textarea{font:inherit;font-weight:400;padding:13px 14px;border:1.5px solid #BFCDC4;border-radius:2px;background:#fff;color:var(--texto)}
+input:focus,select:focus,textarea:focus{border-color:var(--verde);outline:none;box-shadow:0 0 0 3px rgba(181,227,106,.6)}
+.fila{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.hp{position:absolute;left:-9999px}
+#estado{font-weight:600;min-height:1.4em}
+form .btn{justify-self:start}
+
+footer{background:var(--noche);color:#98AEA1;padding:34px 0;font-size:.9rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 32px}
+
+/* barra consulta */
+#barra{position:fixed;left:50%;bottom:20px;transform:translate(-50%,140%);z-index:30;background:var(--noche);color:#fff;padding:12px 12px 12px 24px;display:flex;align-items:center;gap:20px;box-shadow:0 12px 40px rgba(0,0,0,.35);transition:transform .3s;max-width:calc(100% - 24px)}
+#barra.on{transform:translate(-50%,0)}
+#barra .btn{padding:11px 22px}
+
+@media (max-width:960px){
+  .menu a:not(.btn){display:none}
+  .pilares,.pasos{grid-template-columns:1fr 1fr}
+  .cifras .wrap{grid-template-columns:1fr 1fr}
+  .tray .wrap,.contacto .wrap{grid-template-columns:1fr;gap:40px}
+  .retrato{max-width:360px}
+}
+@media (max-width:600px){
+  section{padding:72px 0}
+  .pilares,.pasos,.fila,.zonas ul{grid-template-columns:1fr}
+  #buscar{width:100%}
+  .nav .logo span{display:none}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#inicio"><b>GV</b><span>Gonzalo Valentino Agronegocios</span></a>
+    <nav class="menu" aria-label="Principal">
+      <a href="#productos">Productos</a>
+      <a href="#trayectoria">Trayectoria</a>
+      <a href="#operacion">Operación</a>
+      <a class="btn" href="#contacto">Pedir cotización</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+<section class="hero" style="padding:0">
+  <svg id="surcos" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMax slice" aria-hidden="true"></svg>
+  <div class="wrap">
+    <h1>Protección de cultivos para el canal distribuidor.</h1>
+    <p class="sub">Producto terminado y disponible, directo del formulador. Precio competitivo, mejor margen y la logística resuelta.</p>
+    <div class="acciones">
+      <a class="btn" href="#productos">Ver productos disponibles</a>
+      <a class="btn ghost" href="#contacto">Pedir cotización</a>
+    </div>
+  </div>
+  <div class="cifras">
+    <div class="wrap">
+      <div><strong>Directo del formulador</strong><span>Menos intermediación</span></div>
+      <div><strong>Producto terminado</strong><span>Para venta inmediata</span></div>
+      <div><strong>Desde USD 60.000</strong><span>Operaciones para el canal</span></div>
+      <div><strong>Santa Fe, Córdoba y Buenos Aires</strong><span>Región pampeana</span></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="sup">Propuesta de valor</p>
+    <h2 class="h2">Mejor ecuación económica para distribuidores y agronomías</h2>
+    <div class="pilares">
+      <div class="pilar"><h3>Rentabilidad</h3><p>Una estructura pensada para mejorar el margen del canal.</p></div>
+      <div class="pilar"><h3>Precio competitivo</h3><p>Productos genéricos y venta directa, sin pasos de más.</p></div>
+      <div class="pilar"><h3>Eficacia</h3><p>Productos que cumplen la necesidad de protección para la que se compran.</p></div>
+      <div class="pilar"><h3>Eficiencia</h3><p>Un proceso de compra simple, de la consulta a la entrega.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="catalogo" id="productos">
+  <div class="wrap">
+    <p class="sup">Productos disponibles</p>
+    <h2 class="h2">Armá tu consulta con los productos que necesitás</h2>
+    <p class="lead">Seleccioná uno o varios productos y pedí cotización. Te respondemos con precio y condiciones.</p>
+    <div class="herr">
+      <div class="chips" id="chips" role="group" aria-label="Filtrar por tipo"></div>
+      <input id="buscar" type="search" placeholder="Buscar producto" aria-label="Buscar producto">
+    </div>
+    <div class="lista" id="lista"></div>
+    <p class="nota-cat">Operaciones desde USD 60.000. Consultá por disponibilidad según zona y momento de campaña.</p>
+  </div>
+</section>
+
+<section class="proceso" id="operacion">
+  <div class="wrap">
+    <p class="sup">Operación</p>
+    <h2 class="h2">Nos ocupamos de toda la operación</h2>
+    <p class="lead">Una primera compra simple es el comienzo de una relación recurrente.</p>
+    <ol class="pasos">
+      <li>Venta</li><li>Apertura de cuenta</li><li>Logística y flete</li><li>Entrega</li><li>Cobro</li>
+    </ol>
+  </div>
+</section>
+
+<section class="tray" id="trayectoria">
+  <div class="wrap">
+    <div class="retrato" aria-label="Foto de Gonzalo Valentino">
+      <!-- COMPLETAR: reemplazar GV por <img src="gonzalo.jpg" alt="Gonzalo Valentino"> -->GV
+    </div>
+    <div>
+      <p class="sup">Trayectoria</p>
+      <h2 class="h2">Conocimiento del canal, del producto y de la campaña</h2>
+      <p>Gonzalo Valentino Agronegocios nace de una necesidad concreta del mercado: distribuidores y agronomías operan con márgenes muy ajustados y necesitan productos competitivos con una operatoria simple.</p>
+      <p>El modelo conecta al formulador directamente con el canal distribuidor, reduce intermediación y acompaña la operación desde la venta hasta la logística y el cobro.</p>
+      <!-- COMPLETAR: años de experiencia, formación, empresas y zonas donde trabajó, historia personal de Gonzalo -->
+    </div>
+  </div>
+</section>
+
+<section class="zonas">
+  <div class="wrap">
+    <p class="sup">Cobertura</p>
+    <h2 class="h2">Presentes en la región pampeana</h2>
+    <ul><li>Santa Fe</li><li>Córdoba</li><li>Buenos Aires</li></ul>
+  </div>
+</section>
+
+<section class="contacto" id="contacto">
+  <div class="wrap">
+    <div>
+      <p class="sup">Contacto comercial</p>
+      <h2 class="h2">Pedí tu cotización</h2>
+      <p class="lead">Dejanos tus datos y los productos que buscás. Te contactamos para avanzar con la oportunidad.</p>
+      <ul>
+        <li>Para distribuidores y agronomías</li>
+        <li>Operaciones desde USD 60.000</li>
+        <li>Venta, cuenta, flete, entrega y cobro resueltos</li>
+      </ul>
+    </div>
+    <form id="form" action="https://formspree.io/f/REEMPLAZAR_ID" method="POST">
+      <div class="fila">
+        <label>Nombre y apellido<input name="nombre" required autocomplete="name"></label>
+        <label>Empresa<input name="empresa" required autocomplete="organization"></label>
+      </div>
+      <div class="fila">
+        <label>WhatsApp<input name="whatsapp" type="tel" required autocomplete="tel"></label>
+        <label>Email<input name="email" type="email" autocomplete="email"></label>
+      </div>
+      <div class="fila">
+        <label>Tipo de empresa
+          <select name="tipo" required><option value="">Elegí una opción</option><option>Distribuidor</option><option>Agronomía</option><option>Otro</option></select>
+        </label>
+        <label>Provincia
+          <select name="provincia" required><option value="">Elegí una opción</option><option>Santa Fe</option><option>Córdoba</option><option>Buenos Aires</option><option>Otra</option></select>
+        </label>
+      </div>
+      <label>Volumen de compra estimado
+        <select name="volumen" required><option value="">Elegí una opción</option><option>Desde USD 60.000</option><option>Menos de USD 60.000</option></select>
+      </label>
+      <label>Productos de interés<textarea id="productos" name="productos" rows="3" placeholder="Seleccionalos en el catálogo o escribilos acá"></textarea></label>
+      <input type="hidden" name="utm_source"><input type="hidden" name="utm_medium"><input type="hidden" name="utm_campaign">
+      <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button class="btn verde" type="submit">Enviar consulta</button>
+      <p id="estado" role="status"></p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Gonzalo Valentino Agronegocios</span>
+    <!-- COMPLETAR: razón social, datos fiscales, WhatsApp comercial, email, redes -->
+    <span>Región pampeana</span>
+  </div>
+</footer>
+
+<div id="barra" role="region" aria-label="Consulta">
+  <span id="cuenta"></span>
+  <a class="btn" href="#contacto">Pedir cotización</a>
+</div>
+
+<script>
+(function(){
+  var P=[
+    ["2,4-D ME","H"],["2,4-D Amina 60%","H"],["2,4-D EHE 890 g/L EC","H"],["2,4-D Sal Colina","H"],["Atrazina 50%","H"],["Benazolin 50","H"],["Bentazone 48%","H"],["Clethodim 240 g/L EC","H"],["Dicamba 48%","H"],["Diclosulam 84%","H"],["Diflufenican 50%","H"],["Diquat","H"],["Flumioxazin 48%","H"],["Flurocloridona 25%","H"],["Fluroxipir","H"],["Fomesafen 25%","H"],["Glifosato 48% SL Prince","H"],["Glifosato 54% Potásico Rinder","H"],["Glifosato 75,7% SG Garante Max","H"],["Glufosinato 200 g/L SL","H"],["Haloxifop Gramax 54","H"],["Imazetapir 10,6%","H"],["Metolaclor","H"],["Paraquat 276 g/L SL","H"],["Piclorám 24","H"],["Pinoxaden 5%","H"],["Pyroxasulfone 48","H"],["S-Metolacloro 960 g/L EC","H"],["Sulfentrazone 50%","H"],["Terbutilazina 48%","H"],["Terbutilazina 75 WG","H"],
+    ["Abamectina Bax 3,6","I"],["Bifentrin 10","I"],["Bifentrin 25","I"],["Clorantraniprole 20","I"],["Dinotefuran 20%","I"],["Fipronil 20","I"],["Imidacloprid 35% (Azote)","I"],["Imidacloprid 60%","I"],["Lambdacialotrina 25% CS","I"],["Lambdacialotrina 5%","I"],["Lufenuron 5% + Profenofos 50 (Quiron)","I"],["Lufenuron 5%","I"],["Methomyl","I"],["Thiametoxam + Lambdacialotrina","I"],
+    ["Azo + Cipro","F"],["Full Oil (aceite siliconado)","C"]
+  ];
+  var T={H:"Herbicida",I:"Insecticida",F:"Fungicida",C:"Coadyuvante"};
+  var FILTROS=[["T","Todos"],["H","Herbicidas"],["I","Insecticidas"],["F","Fungicidas"],["C","Coadyuvantes"]];
+  var fil="T",q="",sel={};
+  var lista=document.getElementById("lista"),chips=document.getElementById("chips"),
+      buscar=document.getElementById("buscar"),barra=document.getElementById("barra"),
+      cuenta=document.getElementById("cuenta"),txt=document.getElementById("productos");
+
+  function norm(s){return s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");}
+  function render(){
+    lista.innerHTML="";var n=0;
+    P.forEach(function(p){
+      if(fil!=="T"&&p[1]!==fil)return;
+      if(q&&norm(p[0]).indexOf(q)<0)return;
+      n++;
+      var b=document.createElement("button");b.type="button";b.className="prod";
+      b.setAttribute("aria-pressed",!!sel[p[0]]);
+      b.innerHTML="<span><small>"+T[p[1]]+"</small><strong></strong></span><span class='acc'>"+(sel[p[0]]?"Agregado a tu consulta":"Agregar a la consulta")+"</span>";
+      b.querySelector("strong").textContent=p[0];
+      b.onclick=function(){sel[p[0]]?delete sel[p[0]]:sel[p[0]]=1;sync();render();};
+      lista.appendChild(b);
+    });
+    if(!n){lista.innerHTML="<p class='vacio'>No hay productos con ese criterio. Escribinos lo que buscás en el formulario de contacto.</p>";}
+  }
+  function sync(){
+    var k=Object.keys(sel);
+    txt.value=k.join("\n");
+    cuenta.textContent=k.length+(k.length===1?" producto en tu consulta":" productos en tu consulta");
+    barra.classList.toggle("on",k.length>0);
+  }
+  FILTROS.forEach(function(f){
+    var c=document.createElement("button");c.type="button";c.className="chip";c.textContent=f[1];
+    c.setAttribute("aria-pressed",f[0]==="T");
+    c.onclick=function(){fil=f[0];[].forEach.call(chips.children,function(x){x.setAttribute("aria-pressed",x===c);});render();};
+    chips.appendChild(c);
+  });
+  buscar.oninput=function(){q=norm(buscar.value.trim());render();};
+  render();
+
+  /* surcos del hero */
+  var s=document.getElementById("surcos"),h="",i,vx=720,vy=330;
+  h+='<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E6F3C4" stop-opacity=".0"/><stop offset="1" stop-color="#E6F3C4" stop-opacity=".35"/></linearGradient></defs>';
+  h+='<ellipse cx="'+vx+'" cy="'+vy+'" rx="520" ry="70" fill="#CFE9A0" opacity=".12"/>';
+  for(i=-14;i<=14;i++){h+='<path d="M'+vx+' '+vy+' L'+(vx+i*190)+' 820" stroke="url(#g)" stroke-width="'+(Math.abs(i)<3?2:4)+'" fill="none"/>';}
+  s.innerHTML=h;
+
+  /* utm para medir campañas */
+  var u=new URLSearchParams(location.search);
+  ["utm_source","utm_medium","utm_campaign"].forEach(function(k){
+    var el=document.querySelector("[name="+k+"]");if(el&&u.get(k))el.value=u.get(k);
+  });
+
+  var f=document.getElementById("form"),e=document.getElementById("estado");
+  f.addEventListener("submit",function(ev){
+    ev.preventDefault();e.textContent="Enviando...";
+    fetch(f.action,{method:"POST",body:new FormData(f),headers:{"Accept":"application/json"}})
+      .then(function(r){
+        if(r.ok){f.reset();sel={};sync();render();e.textContent="Consulta enviada. Te contactamos a la brevedad.";}
+        else{e.textContent="No se pudo enviar. Probá de nuevo en unos minutos.";}
+      })
+      .catch(function(){e.textContent="No se pudo enviar. Revisá tu conexión y probá de nuevo.";});
+  });
+})();
+</script>
+</body>
+</html>
