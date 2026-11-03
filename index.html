@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="gv-version" content="4-sin-superposicion">
 <title>Gonzalo Valentino Agronegocios | Protección de cultivos para distribuidores</title>
 <meta name="description" content="Productos terminados para protección de cultivos, disponibles para entrega inmediata. Directo de la industria al distribuidor.">
 <meta property="og:title" content="Gonzalo Valentino Agronegocios">
@@ -73,9 +74,12 @@ a{color:inherit}
 .banner.b1.sin-video{animation:zoomlento 14s ease-in-out infinite alternate}
 .slides{display:grid}
 .slide .acciones{margin-top:38px}
-/* los textos no se superponen: primero sale el anterior y después entra el nuevo */
-.slide{grid-area:1/1;align-self:end;opacity:0;visibility:hidden;transition:opacity .25s ease,visibility 0s linear .25s}
-.slide.activo{opacity:1;visibility:visible;transition:opacity .45s ease .25s}
+/* los textos no se superponen: el anterior desaparece al instante y el nuevo aparece con una animación */
+.slide{grid-area:1/1;align-self:end;opacity:0;visibility:hidden}
+.slide.activo{opacity:1;visibility:visible}
+.hero.anim .slide.activo{animation:aparece .45s ease .1s both}
+@keyframes aparece{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.hero.anim .slide.activo{animation:none}}
 .hero h1,.hero h2.t{text-shadow:0 2px 22px rgba(0,0,0,.38)}
 .hero h2.t{font-size:clamp(2.1rem,5.6vw,4.7rem);max-width:18ch;line-height:1.04;letter-spacing:-.02em}
 .ctrl{display:flex;align-items:center;gap:6px;margin-top:30px}
@@ -254,8 +258,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 
   <div class="banners" aria-hidden="true">
     <div class="banner b1 activo con-media" data-i="0">
       <video muted loop playsinline preload="none" tabindex="-1">
-        <source src="assets/b1-mobile.mp4" type="video/mp4" media="(max-width: 600px)">
-        <source src="assets/b1.mp4" type="video/mp4">
+        <source src="b1-mobile.mp4" type="video/mp4" media="(max-width: 600px)">
+        <source src="b1.mp4" type="video/mp4">
       </video>
     </div>
     <div class="banner con-media fuerte" data-i="1">
@@ -593,7 +597,9 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 
       } else { v.pause(); }
     });
   }
+  var primera=true;
   function show(n){
+    if(!primera) hero.classList.add('anim'); primera=false;
     n=(n+slides.length)%slides.length; cur=n;
     slides.forEach(function(sl,i){ sl.classList.toggle('activo',i===n); sl.setAttribute('aria-hidden',i===n?'false':'true'); });
     banners.forEach(function(b,i){
@@ -614,7 +620,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 
   function bannerListo(n){ var im=banners[n].querySelector('img'); return !im || (im.complete && im.naturalWidth>0); }
   function cambiar(espera){
     var n=(cur+1)%slides.length;
-    if(!bannerListo(n) && espera<5){ timer=setTimeout(function(){ cambiar(espera+1); },400); return; }
+    if(!bannerListo(n) && espera<3){ timer=setTimeout(function(){ cambiar(espera+1); },300); return; }
     show(n); tick();
   }
   dots.forEach(function(d,i){ d.addEventListener('click',function(){ show(i); tick(); }); });
@@ -624,11 +630,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 
     pausa.setAttribute('aria-label',userPaused?'Reanudar rotación de banners':'Pausar rotación de banners');
     sync(); tick();
   });
-  hero.addEventListener('mouseenter',function(){ if(window.matchMedia('(hover:hover)').matches){ overPaused=true; tick(); } });
-  hero.addEventListener('mouseleave',function(){ overPaused=false; tick(); });
-  hero.addEventListener('focusin',function(){ overPaused=true; tick(); });
-  hero.addEventListener('focusout',function(){ overPaused=false; tick(); });
   document.addEventListener('visibilitychange',function(){ sync(); tick(); });
+  window.addEventListener('pageshow',function(){ sync(); tick(); });
   if('IntersectionObserver' in window){ new IntersectionObserver(function(en){ visible=en[0].isIntersecting; sync(); },{threshold:.15}).observe(hero); }
   document.addEventListener('keydown',function(e){
     if(!hero.contains(document.activeElement)) return;
