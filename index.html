@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="gv-version" content="4-sin-superposicion">
+<meta name="gv-version" content="5-pase-en-3-5s">
 <title>Gonzalo Valentino Agronegocios | Protección de cultivos para distribuidores</title>
 <meta name="description" content="Productos terminados para protección de cultivos, disponibles para entrega inmediata. Directo de la industria al distribuidor.">
 <meta property="og:title" content="Gonzalo Valentino Agronegocios">
@@ -631,7 +631,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 
     sync(); tick();
   });
   document.addEventListener('visibilitychange',function(){ sync(); tick(); });
-  window.addEventListener('pageshow',function(){ sync(); tick(); });
+  window.addEventListener('pageshow',function(e){ if(e.persisted){ sync(); tick(); } });
   if('IntersectionObserver' in window){ new IntersectionObserver(function(en){ visible=en[0].isIntersecting; sync(); },{threshold:.15}).observe(hero); }
   document.addEventListener('keydown',function(e){
     if(!hero.contains(document.activeElement)) return;
